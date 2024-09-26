@@ -6,8 +6,13 @@
         <title>Blog GPDS</title>
 
         <style>
+            @font-face {
+                font-family: 'Fredoka';
+                src: url(./fonts/fredoka.ttf);
+            }
+
             * {
-                font-family: Arial, sans-serif;
+                font-family: Fredoka, sans-serif;
                 padding: 0;
                 margin: 0;
             }
@@ -18,22 +23,25 @@
                 padding: 20px;
             }
 
-            h1 {
-                font-size: 32px;
-                font-weight: bold;
-                margin-bottom: 10px;
+            p {
+                font-size: 22px;
             }
 
+            h1 {
+                font-size: 64px;
+                margin-bottom: 10px;
+                font-weight: 500;
+            }
             
             h2 {
-                font-size: 24px;
-                font-weight: bold;
+                font-size: 36px;
+                font-weight: 500;
                 margin-bottom: 10px;
             }
             
             h3 {
-                font-size: 18px;
-                font-weight: bold;
+                font-size: 26px;
+                font-weight: 500;
                 margin-bottom: 10px;
             }
             
@@ -46,13 +54,14 @@
                 margin-bottom: 10px;
             }
             
-            ul {
-                margin-bottom: 10px;
+            section ul {
+                margin-bottom: 30px;
             }
 
-            li {
+            section ul li {
                 margin-bottom: 5px;
                 margin-left: 20px;
+                font-size: 22px;
             }
 
             section {
@@ -60,19 +69,88 @@
                 margin-bottom: 30px;
             }
 
+            div.center {
+                text-align: center;
+            }
+            img {
+                height: 250px;
+                margin: 20px 0;
+            }
+
+            nav {
+                background-color: #3f3c89;
+                color: white;
+                text-align: right;
+                padding: 20px;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            nav ul {
+                list-style: none;
+            }
+
+            nav ul li {
+                display: inline;
+                margin-right: 10px;
+            }
+
+            nav ul li a {
+                color: white;
+                text-decoration: none;
+            }
+
+            nav ul li a:hover {
+                text-decoration: underline;
+            }
+
+            .img-row {
+                display: flex;
+                flex-direction: row;
+                align-content: center;
+                justify-content: center;
+            }
+
+            .img-row img {
+                margin: 10px;
+                height: 100px;
+            }
 
         </style>
     </head>
     <body>
+        <nav>
+            <span style="font-weight: 500; font-size: 1.2em;">Blog GPDS</span>
+            <ul>
+                <li><a href="">Inicio</a></li>
+                <li><a href="">Conceptos generales de una idea</a></li>
+            </ul>
+        </nav>
+        
+        <div style="background-image: url('./images/bg.jpg'); height: 300px; margin-bottom: 20px;">
+            <h1 style="color: white; text-align: center; font-weight: 600; padding-top: 100px; font-size: 82px;">Blog GPDS</h1>
+        </div>
 
         <div class="container">
+            
             <h1>Conceptos generales de una idea</h1>
             <p>Escrito por: Miguel Ángel Diosdado Rodríguez y Fernanda Montserrat Hernández Ávila</p>
+            
+            <hr>
+            <div class="center">
+                <img src="images/imss.jpg" alt="">
+            </div>
 
+            
             <section>
                 <h2>Proyecto: SIMAPE</h2>
                 <p>SIMAPE (por sus siglas Sistema de Manejo de Pensiones) es una aplicación web diseñada para llevar el control de los documentos relacionados a las pensiones de los trabajadores registrados en el sistema del seguro social en México (IMSS).</p>
+                <div class="center">
+                    <img src="images/simape-logo.png" alt="" style="height: 100px;">
+                </div>
             </section>
+
+            <hr>
 
             <section>
                 <h2>Características</h2>
@@ -85,12 +163,16 @@
                 </ul>
             </section>
 
+            <hr>
+
             <section>
                 <h2>Funcionamiento</h2>
     
                 <p>SIMAPE pretende ser una aplicación web con funcionamiento en la intranet de la organización, por lo tanto replica el modelo clásico de cliente-servidor.</p>
-    
-                [Aquí una imagen del modelo vea]
+                
+                <div class="center">
+                    <img src="images/cliente-servidor.webp" alt="">
+                </div>
     
                 <p>La aplicación web tendrá la siguiente estructura:</p>
     
@@ -99,13 +181,22 @@
                     <li>Backend: Lógica de negocio y acceso a la base de datos</li>
                     <li>Base de datos: Almacenamiento de la información de los expedientes</li>
                 </ul>
-    
+
+                <h3>Navegación</h3>
+                <p>La navegación se puede representar con el siguiente diagrama:</p>
+                <div class="center">
+                    <img src="images/diagrama-navegacion.png" alt="">
+                </div>
+
+                
                 <p>El sistema permite iniciar sesión, dar de alta expedientes en la base de datos, buscar un expediente, hacer alguna operación (retiro, ingreso, alta, baja, transferencia) y ver el historial de movimientos realizados.</p>
-    
+                
                 <p>Al generar un movimiento, se imprime un comprobante en automático de la operación, por lo que cada máquina deberá contar con una impresora térmica. De no ser el caso, o si pasa algún inconveniente, el usuario puede acceder al historial de movimientos para reimprimir el comprobante en caso de ser necesario.</p>
     
                 <p>Por último, el usuario administrador tiene la capacidad de generar reportes de un expediente o usuario en específico, con la finalidad de ver todos sus movimientos. Este reporte se puede filtrar por fecha, tipo de pensión o tipo de movimiento.</p>
             </section>
+
+            <hr>
 
             <section>
                 <h2>Ventajas</h2>
@@ -116,6 +207,8 @@
                     <li>Generación de reportes</li>
                 </ul>
             </section>
+
+            <hr>
             
             <section>
                 <h2>Desventajas</h2>
@@ -124,6 +217,8 @@
                     <li>Necesidad de capacitación de personal</li>
                 </ul>
             </section>
+
+            <hr>
 
             <section>
                 <h2>Beneficios</h2>
@@ -134,22 +229,43 @@
                 </ul>
             </section>
 
+            <hr>
+
             <section>
                 <h2>Implementación</h2>
                 <p>Para llevar a cabo la implementación de SIMAPE, se propone la metodología DevOps, la cual permite la colaboración entre equipos de desarrollo y operaciones para automatizar el proceso de entrega de software.</p>
             </section>
+
+            <hr>
             
             <section>
                 <h2>Galeria</h2>
                 <p>Imágenes de la interfaz de usuario de SIMAPE</p>
+                <div class="center">
+                    <p>Pantalla principal</p>
+                    <img src="images/simape-1.png" alt="">
+                    <p>Datos del usuario</p>
+                    <img src="images/simape-2.png" alt="">
+                    <p>Consulta de expedientes</p>
+                    <img src="images/simape-3.png" alt="">
+                    <p>Gestión de usuarios</p>
+                    <img src="images/simape-4.png" alt="">
+                    <p>Transferencia de expedientes</p>
+                    <img src="images/simape-5.png" alt="">
+                    <p>Comprobante de movimiento</p>
+                    <img src="images/simape-6.png" alt="">
+                </div>
     
-                [Aquí imágenes de la interfaz vea]
             </section>
+
+            <hr>
 
             <section>
                 <h2>¿Cómo dar a conocer la idea?</h2>
                 <p>La presentación de la idea es un elemento fundamental en la creación de un proyecto, por tanto, y desde mi punto de vista, la mejor manera es construir una presentación dirigida al cliente, en este caso IMSS, y contactar con un directivo que pueda estar interesado en este proyecto. También es relevante mencionar que hacer una prueba de concepto funcional puede contribuir a una mejor impresión, y si además se trabaja la parte estética del producto se tienen más probabilidades de que el cliente quiera darle seguimiento.</p>
             </section>
+
+            <hr>
                 
             <section>
 
@@ -194,6 +310,8 @@
                 </ul>
             </section>
 
+            <hr>
+
             <section>
                 <h2>Tecnologías usadas</h2>
                 <ul>
@@ -202,7 +320,18 @@
                     <li>Sequelize (ORM para base de datos en SQL)</li>
                     <li>MariaDB (Gestor de base de datos SQL)</li>
                 </ul>
+
+                <div class="img-row">
+                    <img src="images/html.png" alt="">
+                    <img src="images/css.png" alt="">
+                    <img src="images/js.png" alt="">
+                    <img src="images/node.png" alt="">
+                    <img src="images/sequelize.png" alt="">
+                    <img src="images/mariadb.jpg" alt="">
+                </div>
             </section>
+
+            <hr>
 
             <section>
 
@@ -233,6 +362,8 @@
                     <li>Seguridad en SQL: Configurar medidas de seguridad en la base de datos SQL de SIMAPE para evitar inyecciones de SQL y proteger la integridad de los datos.</li>
                 </ul>
             </section>
+
+            <hr>
 
             <section>
                 <h2>Conclusión</h2>
