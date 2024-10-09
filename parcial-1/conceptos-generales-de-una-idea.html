@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="../images/dev-icon.svg" type="image/x-icon">
+        <link rel="stylesheet" href="../styles.css">
+        <title>Conceptos generales de una idea</title>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <span style="font-weight: 500; font-size: 1.5em; display: flex; flex-direction: row; align-items: center; gap: 10px;">
+                    <svg width="1.3em" viewBox="0 0 474 518" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M131 196L203.286 255.628C205.723 257.638 205.708 261.377 203.255 263.367L131 322M344 322H252M20.4937 177.301V340.699C20.4937 367.494 34.7886 392.253 57.9937 405.651L199.5 487.349C222.705 500.747 251.295 500.747 274.5 487.349L416.006 405.651C439.211 392.253 453.506 367.494 453.506 340.699V177.301C453.506 150.506 439.211 125.747 416.006 112.349L274.5 30.6506C251.295 17.2532 222.705 17.2532 199.5 30.6506L57.9937 112.349C34.7886 125.747 20.4937 150.506 20.4937 177.301Z" stroke="white" stroke-width="50" stroke-linecap="round"/>
+                    </svg> 
+                    Blog GPDS
+                </span>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="">Conceptos generales de una idea</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <!-- <div style="background-image: url('./images/js_bg.jpg'); height: 300px; margin-bottom: 20px; background-size: cover;">
+            <h1 style="color: white; text-align: center; font-weight: 600; line-height: 300px; font-size: 82px; font-family: Poppins; backdrop-filter: blur(2px);">Blog GPDS</h1>
+        </div> -->
+
+        <div class="grid">
+            <nav>
+                <div class="index-container">
+                    <ul>
+                        <li><a href="">Conceptos generales de una idea</a></li>
+                        <ul>
+                            <li><a href="">Proyecto: SIMAPE</a></li>
+                            <li><a href="">Características</a></li>
+                            <li><a href="">Funcionamiento</a></li>
+                            <li><a href="">Ventajas</a></li>
+                            <li><a href="">Desventajas</a></li>
+                            <li><a href="">Beneficios</a></li>
+                            <li><a href="">Implementación</a></li>
+                            <li><a href="">Galeria</a></li>
+                            <li><a href="">¿Cómo dar a conocer la idea?</a></li>
+                            <li><a href="">Implementando DevOps en SIMAPE</a></li>
+                            <li><a href="">Tecnologías usadas</a></li>
+                            <li><a href="">Evaluaciones y métricas de seguridad</a></li>
+                            <li><a href="">Conclusión</a></li>
+                        </ul>
+                    </ul>
+                </div>
+            </nav>
+
+            <main>
+                <h1>Conceptos generales de una idea</h1>
+                <p>Escrito por: <strong>Miguel Ángel Diosdado Rodríguez</strong> y <strong>Fernanda Montserrat Hernández Ávila</strong></p>
+                <p style="font-size: 1em;">Fecha: <strong>25 de septiembre de 2024</strong></p>
+                
+                <hr>
+                <div class="center">
+                    <img src="../images/imss.jpg" alt="" style="height: 350px;">
+                </div>
+            
+                <section>
+                    <h2>Proyecto: SIMAPE</h2>
+                    <p><strong>SIMAPE</strong> (por sus siglas <em>Sistema de Manejo de Pensiones</em>) es una <strong>aplicación web</strong> diseñada para llevar el control de los documentos relacionados a las <strong>pensiones</strong> de los trabajadores registrados en el <strong>IMSS</strong> (Instituto Mexicano del Seguro Social).</p>
+                    <div class="center">
+                        <img src="../images/simape-logo.png" alt="" style="height: 100px;">
+                    </div>
+                </section>
+            
+                <hr>
+            
+                <section>
+                    <h2>Características</h2>
+                    <ul>
+                        <li><strong>Registro y control</strong> de usuarios de dos tipos: <em>administrativos</em> y <em>operativos</em></li>
+                        <li><strong>Búsqueda rápida</strong> y efectiva de información</li>
+                        <li><strong>Registro de acciones</strong></li>
+                        <li><strong>Impresión de comprobantes</strong> de cada acción realizada</li>
+                        <li><strong>Generación de reportes</strong></li>
+                    </ul>
+                </section>
+            
+                <hr>
+            
+                <section>
+                    <h2>Funcionamiento</h2>
+                    <p><strong>SIMAPE</strong> pretende ser una <strong>aplicación web</strong> con funcionamiento en la <em>intranet</em> de la organización, replicando el modelo clásico de <strong>cliente-servidor</strong>.</p>
+                    
+                    <div class="center">
+                        <img src="../images/cliente-servidor.webp" alt="">
+                    </div>
+            
+                    <p>La aplicación web tendrá la siguiente estructura:</p>
+                    
+                    <ul>
+                        <li><strong>Frontend</strong>: Interfaz de usuario para interactuar con el sistema</li>
+                        <li><strong>Backend</strong>: Lógica de negocio y acceso a la base de datos</li>
+                        <li><strong>Base de datos</strong>: Almacenamiento de la información de los expedientes</li>
+                    </ul>
+            
+                    <h3>Navegación</h3>
+                    <p>La navegación se puede representar con el siguiente <strong>diagrama</strong>:</p>
+                    <div class="center">
+                        <img src="../images/diagrama-navegacion.png" alt="">
+                    </div>
+            
+                    <p>El sistema permite <strong>iniciar sesión</strong>, <strong>dar de alta expedientes</strong> en la base de datos, <strong>buscar un expediente</strong>, hacer operaciones como <strong>retiro, ingreso, alta, baja o transferencia</strong> y ver el historial de movimientos realizados.</p>
+            
+                    <p>Al generar un movimiento, se <strong>imprime un comprobante</strong> de la operación automáticamente. En caso de error o inconveniente, se puede acceder al <strong>historial de movimientos</strong> para reimprimir el comprobante.</p>
+            
+                    <p>El <strong>administrador</strong> tiene la capacidad de <strong>generar reportes</strong> de un expediente o usuario en específico, con filtros por <em>fecha, tipo de pensión o tipo de movimiento</em>.</p>
+                </section>
+            
+                <hr>
+            
+                <section>
+                    <h2>Ventajas</h2>
+                    <ul>
+                        <li>Ahorro de <strong>tiempo</strong> en búsquedas</li>
+                        <li>Registro detallado de <strong>movimientos</strong></li>
+                        <li>Obtención de <strong>comprobantes</strong> de movimientos</li>
+                        <li>Generación de <strong>reportes</strong></li>
+                    </ul>
+                </section>
+            
+                <hr>
+            
+                <section>
+                    <h2>Desventajas</h2>
+                    <ul>
+                        <li><em>Costos</em> por introducción de <strong>impresoras térmicas</strong> y papel termosensible</li>
+                        <li>Necesidad de <strong>capacitación</strong> del personal</li>
+                    </ul>
+                </section>
+            
+                <hr>
+            
+                <section>
+                    <h2>Beneficios</h2>
+                    <ul>
+                        <li><strong>Mejora</strong> en la eficiencia del sistema</li>
+                        <li><strong>Ahorro de tiempo</strong></li>
+                        <li><strong>Trazabilidad</strong> de documentos</li>
+                    </ul>
+                </section>
+            
+                <hr>
+            
+                <section>
+                    <h2>Implementación</h2>
+                    <p>Para la implementación de <strong>SIMAPE</strong>, se propone la metodología <strong>DevOps</strong>, facilitando la colaboración entre los equipos de <strong>desarrollo</strong> y <strong>operaciones</strong> para automatizar el proceso de entrega de software.</p>
+                </section>
+            
+                <hr>
+                
+                <section>
+                    <h2>Galería</h2>
+                    <p>Imágenes de la <strong>interfaz de usuario</strong> de SIMAPE</p>
+                    <div class="center">
+                        <p><em>Pantalla principal</em></p>
+                        <img src="../images/simape-1.png" alt="">
+                        <p><em>Datos del usuario</em></p>
+                        <img src="../images/simape-2.png" alt="">
+                        <p><em>Consulta de expedientes</em></p>
+                        <img src="../images/simape-3.png" alt="">
+                        <p><em>Gestión de usuarios</em></p>
+                        <img src="../images/simape-4.png" alt="">
+                        <p><em>Transferencia de expedientes</em></p>
+                        <img src="../images/simape-5.png" alt="">
+                        <p><em>Comprobante de movimiento</em></p>
+                        <img src="../images/simape-6.png" alt="">
+                    </div>
+                </section>
+            
+                <hr>
+            
+                <section>
+                    <h2>¿Cómo dar a conocer la idea?</h2>
+                    <p>La <strong>presentación</strong> de la idea es crucial. Desde mi punto de vista, la mejor manera es construir una <strong>presentación dirigida al cliente</strong>, en este caso <strong>IMSS</strong>, y contactar a un <strong>directivo</strong> que pueda estar interesado. Hacer una <strong>prueba de concepto funcional</strong> también contribuiría a una mejor impresión.</p>
+                </section>
+            
+                <hr>
+            
+                <section>
+
+                    <h2>Implementando DevOps en SIMAPE</h2>
+                    <div class="center">
+                        <img src="../images/devops.png" alt="" style="height:200px;">
+                    </div>
+                    <p>Para implementar DevOps en SIMAPE, se deben seguir las siguientes <strong>prácticas</strong> y <strong>recomendaciones</strong>:</p>
+                    
+                    <h3>Planificación</h3>
+                    <ul>
+                        <li><strong>Definición del alcance:</strong> Detallar las características de SIMAPE (registro de usuarios, búsqueda, generación de reportes, etc.) y las prioridades.</li>
+                        <li><strong>Colaboración entre equipos:</strong> Administradores de sistemas, desarrolladores y QA deben estar involucrados en la planificación desde el principio.</li>
+                        <li><strong>Herramientas:</strong> Usar <em>Miro</em> para gestionar tareas y facilitar la colaboración, y <em>Discord</em> para mantener la comunicación del equipo.</li>
+                    </ul>
+                
+                    <h3>Desarrollo</h3>
+                    <ul>
+                        <li><strong>Versionado de código:</strong> Usar un sistema de control de versiones como Git. Implementar ramas específicas para características (<em>feature branches</em>) como "gestión de usuarios" o "generación de reportes".</li>
+                        <li><strong>Buenas prácticas de código:</strong> Aplicar metodologías ágiles como TDD (<em>Test Driven Development</em>) y realizar refactorización constante.</li>
+                        <li><strong>Herramientas:</strong> Utilizar <em>GitHub</em> o <em>GitLab</em> para los repositorios de código, con políticas de revisión y aprobación para cada commit.</li>
+                    </ul>
+                
+                    <h3>Integración continua (CI)</h3>
+                    <ul>
+                        <li><strong>Automatización de pruebas:</strong> Configurar un entorno de integración continua con <em>Jenkins</em>, <em>Travis CI</em> o <em>GitLab CI/CD</em> que ejecute pruebas automáticas después de cada commit, asegurando que el sistema SIMAPE siempre esté funcionando correctamente.</li>
+                        <li><strong>Compilación y despliegue:</strong> Automatizar la construcción de la aplicación después de cada commit exitoso, integrando pruebas unitarias y de integración para validar funcionalidades como la generación de reportes y la búsqueda de información.</li>
+                    </ul>
+                
+                    <h3>Entrega continua (CD)</h3>
+                    <ul>
+                        <li><strong>Despliegue automatizado:</strong> Configurar el despliegue automático del sistema SIMAPE a entornos de prueba, pre-producción y producción usando herramientas como <em>Docker</em> y <em>Kubernetes</em> para gestionar contenedores y escalabilidad.</li>
+                        <li><strong>Validación:</strong> Desplegar la aplicación a un entorno de pruebas, donde los usuarios administrativos y operativos puedan validar las funcionalidades como el registro de acciones y la generación de comprobantes.</li>
+                    </ul>
+                
+                    <h3>Monitoreo y retroalimentación</h3>
+                    <ul>
+                        <li><strong>Monitoreo del sistema:</strong> Utilizar herramientas como <em>Prometheus</em>, <em>Grafana</em> o <em>Datadog</em> para monitorear el rendimiento de SIMAPE, incluyendo el tiempo de respuesta de la búsqueda de información y la eficiencia en la generación de reportes.</li>
+                        <li><strong>Logs y alertas:</strong> Configurar alertas en caso de errores en el sistema, como fallos en el registro de usuarios o problemas en la generación de reportes. Herramientas como <em>ELK Stack</em> (<em>Elasticsearch</em>, <em>Logstash</em>, <em>Kibana</em>) pueden ayudar en el análisis de logs.</li>
+                        <li><strong>Feedback continuo:</strong> Recoger retroalimentación del equipo de soporte y usuarios finales para mejorar el sistema.</li>
+                    </ul>
+                
+                    <h3>Operaciones y mantenimiento</h3>
+                    <ul>
+                        <li><strong>Escalabilidad:</strong> Planificar la escalabilidad del sistema SIMAPE para que soporte un mayor número de usuarios y documentos a medida que el sistema crezca.</li>
+                        <li><strong>Actualizaciones frecuentes:</strong> Implementar una estrategia de mantenimiento continuo con despliegues pequeños y frecuentes para corregir errores y agregar nuevas funcionalidades.</li>
+                    </ul>
+                    
+                </section>
+                
+
+                <hr>
+            
+                <section>
+                    <h2>Tecnologías usadas</h2>
+                    <ul>
+                        <li><strong>HTML, CSS, JS</strong> (Web en general)</li>
+                        <li><strong>NodeJS</strong> (Backend/API/Sesiones)</li>
+                        <li><strong>Sequelize</strong> (ORM para base de datos en SQL)</li>
+                        <li><strong>MariaDB</strong> (Gestor de base de datos SQL)</li>
+                    </ul>
+                    <div class="img-row">
+                        <img src="../images/html.png" alt="">
+                        <img src="../images/css.png" alt="">
+                        <img src="../images/js.png" alt="">
+                        <img src="../images/node.png" alt="">
+                        <img src="../images/sequelize.png" alt="">
+                        <img src="../images/mariadb.jpg" alt="">
+                    </div>
+                </section>
+            
+                <hr>
+            
+                <section>
+                    <h2>Evaluaciones y métricas de seguridad</h2>
+                    <div class="center">
+                        <img src="../images/security.png" alt="">
+                    </div>
+                    <p>Para garantizar la <strong>seguridad</strong> del sistema, se llevarán a cabo pruebas de <strong>penetración</strong> y evaluaciones periódicas.</p>
+                </section>
+            </main>
+            
+
+            <aside>
+                <p>Texto </p>
+            </aside>
+        </div>
+        <footer>
+            <div class="container">
+                <p>Blog GPDS - 2024</p>
+                <p>Diosdado Rodriguez Miguel Ángel & Hernández Ávila Fernanda Montserrat</p>
+            </div>
+        </footer>
+    </body>
+</html>
