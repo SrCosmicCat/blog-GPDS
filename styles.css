@@ -41,6 +41,7 @@ hr {
 
     width: 90%;
     margin: auto;
+    margin-bottom: 100px;
 }
 
 h1 {
@@ -112,9 +113,14 @@ main span {
 
 
 main img {
-    max-width: 100%;
-    margin-bottom: 10px;
+    width: 80%;
+    height: auto;
+
+    margin: 30px auto;
+    display: block;
+    
     filter: drop-shadow(3px 6px 9px rgba(0, 0, 0, 0.2));
+
 }
 
 section ul {
@@ -227,11 +233,13 @@ aside {
     flex-direction: row;
     align-content: center;
     justify-content: center;
+    gap: 10px;
 }
 
 .img-row img {
     margin: 10px;
-    height: 100px;
+    height: 60px;
+    width: auto;
 }
 
 .card {
@@ -264,6 +272,20 @@ aside {
 .card .author-container span {
     font-size: 14px;
     font-weight: 500;
+}
+
+pre {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    overflow-x: auto;
+}
+
+code {
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 footer {

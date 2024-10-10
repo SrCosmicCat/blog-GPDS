@@ -314,43 +314,583 @@
                             <p>Susan, S. (2021b). Web. Buscador.com. https://www.buscador.com/web/</p>
                             <p>URI: ¿qué es el identificador de recursos uniforme? (2022, 23 marzo). IONOS Digital Guide. https://www.ionos.mx/digitalguide/paginas-web/desarrollo-web/uri-identificador-de-recursos-uniformes/</p>
                             <p>Tablado, F. (2020). Bases de datos estáticas. ¿Qué son? Ejemplos. Ayuda Ley Protección Datos. https://ayudaleyprotecciondatos.es/bases-de-datos/estaticas/</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 </section>
 
                 <hr>
                 <section id="documentacion-del-codigo">
                     <h2>Documentación del código</h2>
-                    
-                </section>
+                    <h3>Base de datos</h3>
+                    <h4>Diagrama ER</h4>
+                        <img src="../images/diagrama-er.png" alt="Diagrama Entidad-Relación" class="img-fluid">
+                    <h4>Script</h4>
+                    <pre>
+                        <code>
+/*
+© SCRIPT BASE DE DATOS PARA SISTEMA DE MANEJO DE EXPEDIENTES DEL DEPARTAMENTO DE PENSIONES "SIMAPE".
+DISEÑADO POR: 
+- MIGUEL ÁNGEL DIOSDADO RODRÍGUEZ (angeldr.ti21@utsjr.edu.mx)
+- FERNANDA MONTSERRAT HERNÁNDEZ ÁVILA (montserratha.ti21@utsjr.edu.mx)
 
-                <hr>
+ESCRITO POR: 
+- MIGUEL ÁNGEL DIOSDADO RODRÍGUEZ (angeldr.ti21@utsjr.edu.mx)
+
+PARA MAYOR INFORMACIÓN SOBRE EL MODELO, CONSULTE EN EL MANUAL TÉCNICO.
+
+ÚLTIMA VERSIÓN: 07/08/2023
+*/
+
+DROP DATABASE IF EXISTS SIMAPE;
+CREATE DATABASE IF NOT EXISTS SIMAPE;
+
+USE SIMAPE;
+
+/*
+La tabla delegación almacena las delegaciones y subdelegaciones disponibles.
+Consta de un identificador único, y un número de delegación que es independiente, 
+ya que una delegación puede contener muchas subdelegaciones. Este patrón es parecido a
+decir que:
+delegacion = {
+    n_delegacion: 1,
+    nom_delegacion: 'nombre',
+    subdelegaciones: [
+        {n_subdelegacion: 1, nom_subdelegacion: 'sub1'},
+        {n_subdelegacion: 2, nom_subdelegacion: 'sub2'},
+    ]
+}
+*/
+DROP TABLE IF EXISTS delegacion;
+CREATE TABLE IF NOT EXISTS delegacion(
+    id_delegacion INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    n_delegacion INT NOT NULL,
+    nom_delegacion VARCHAR(50) NOT NULL,
+    n_subdelegacion INT NOT NULL,
+    nom_subdelegacion VARCHAR(50) NOT NULL
+) ENGINE = InnoDB;
+
+INSERT INTO delegacion VALUES
+    (null,'01','AGUASCALIENTES','01','NORTE'),
+    (null,'01','AGUASCALIENTES','19','SUR'),
+    (null,'02','BAJA CALIFORNIA NORTE','01','MEXICALI'),
+    (null,'02','BAJA CALIFORNIA NORTE','02','TECATE'),
+    (null,'02','BAJA CALIFORNIA NORTE','03','ENSENADA'),
+    (null,'02','BAJA CALIFORNIA NORTE','04','SAN LUIS RIO COLORADO'),
+    (null,'02','BAJA CALIFORNIA NORTE','05','TIJUANA'),
+    (null,'03','BAJA CALIFORNIA SUR','01','LA PAZ'),
+    (null,'03','BAJA CALIFORNIA SUR','08','LOS CABOS SAN LUCAS'),
+    (null,'04','CAMPECHE','01','CAMPECHE'),
+    (null,'04','CAMPECHE','04','CD. DEL CARMEN'),
+    (null,'05','COAHUILA','03','SALTILLO'),
+    (null,'05','COAHUILA','09','TORREÓN'),
+    (null,'05','COAHUILA','11','CD. ACUÑA'),
+    (null,'05','COAHUILA','12','PIEDRAS NEGRAS'),
+    (null,'05','COAHUILA','17','MOCLOVA'),
+    (null,'05','COAHUILA','23','SABINAS'),
+    (null,'06','COLIMA','01','COLIMA'),
+    (null,'06','COLIMA','03','MANZANILLO'),
+    (null,'06','COLIMA','07','TECOMÁN'),
+    (null,'07','CHIAPAS','01','FORÁNEA'),
+    (null,'07','CHIAPAS','02','METROPOLITANA'),
+    (null,'08','CHIHUAHUA','01','CHICHUAHUA'),
+    (null,'08','CHIHUAHUA','10','JUÁREZ'),
+    (null,'08','CHIHUAHUA','60','JUÁREZ II'),
+    (null,'08','CHIHUAHUA','05','CD. DELICIAS'),
+    (null,'08','CHIHUAHUA','03','CD. CUAUHTÉMOC'),
+    (null,'08','CHIHUAHUA','22','HIDALGO DEL PARRAL'),
+    (null,'08','CHIHUAHUA','08','NUEVO CASAS GRANDES'),
+    (null,'09','COORDINACIÓN DE PRESTACIONES ECONÓMICAS','1','NIVEL CENTRAL'),
+    (null,'10','DURANGO','01','DURANGO'),
+    (null,'10','DURANGO','13','GÓMEZ PALACIOS'),
+    (null,'11','GUANAJUATO','01','GUANAJUATO'),
+    (null,'11','GUANAJUATO','05','IRAPUATO'),
+    (null,'11','GUANAJUATO','08','CELAYA'),
+    (null,'11','GUANAJUATO','14','SALAMANCA'),
+    (null,'11','GUANAJUATO','17','LEÓN'),
+    (null,'12','GUERRERO','01','CHILPANCINGO'),
+    (null,'12','GUERRERO','02','ACAPULCO'),
+    (null,'12','GUERRERO','03','IGUALA'),
+    (null,'12','GUERRERO','13','ZIHUATANEJO'),
+    (null,'13','HIDALGO','01','PACHUCA'),
+    (null,'13','HIDALGO','07','CD. SAHAGÚN'),
+    (null,'13','HIDALGO','10','TULA ALLENDE'),
+    (null,'13','HIDALGO','05','TULANCINGO'),
+    (null,'14','JALISCO','12','TEPATITLÁN'),
+    (null,'14','JALISCO','15','OCOTLÁN'),
+    (null,'14','JALISCO','22','CD. GUZMÁN'),
+    (null,'14','JALISCO','38','HIDALGO'),
+    (null,'14','JALISCO','39','LIBERTAD REFORMA'),
+    (null,'14','JALISCO','40','JUÁREZ'),
+    (null,'14','JALISCO','50','PTO. VALLARTA'),
+    (null,'15','ESTADO DE MÉXICO ORIENTE','06','TLALNEPANTLA'),
+    (null,'15','ESTADO DE MÉXICO ORIENTE','54','ECATEPEC'),
+    (null,'15','ESTADO DE MÉXICO ORIENTE','80','LOS REYES LA PAZ'),
+    (null,'16','ESTADO DE MÉXICO PONIENTE','01','TOLUCA'),
+    (null,'16','ESTADO DE MÉXICO PONIENTE','05','NAUCALPAN'),
+    (null,'17','MICHOACÁN','03','MORELIA'),
+    (null,'17','MICHOACÁN','09','URUAPAN'),
+    (null,'17','MICHOACÁN','13','ZAMORA'),
+    (null,'17','MICHOACÁN','17','ZITACUARO'),
+    (null,'17','MICHOACÁN','27','LÁZARO CÁRDENAS'),
+    (null,'18','MORELOS','01','CUERNAVACA'),
+    (null,'18','MORELOS','11','CUAUTLA'),
+    (null,'18','MORELOS','15','ZACATEPEC'),
+    (null,'19','NAYARIT','01','TEPIC'),
+    (null,'20','NUEVO LEÓN','06','MONTEMORELOS'),
+    (null,'20','NUEVO LEÓN','08','APODACA'),
+    (null,'20','NUEVO LEÓN','31','NORESTE'),
+    (null,'20','NUEVO LEÓN','32','NOROESTE'),
+    (null,'20','NUEVO LEÓN','33','SURESTE'),
+    (null,'20','NUEVO LEÓN','34','SUROESTE'),
+    (null,'21','OAXACA','02','OAXACA'),
+    (null,'21','OAXACA','03','SALINA CRUZ'),
+    (null,'21','OAXACA','04','TUXTEPEC'),
+    (null,'21','OAXACA','53','STA. MA. HUATULCO'),
+    (null,'22','PUEBLA','01','PUEBLA NORTE'),
+    (null,'22','PUEBLA','05','TEZIUTLÁN'),
+    (null,'22','PUEBLA','06','TEHUACÁN'),
+    (null,'22','PUEBLA','08','IZUCAR DE MATAMOROS'),
+    (null,'22','PUEBLA','22','PUEBLA SUR'),
+    (null,'23','QUERÉTARO','01','QUERÉTARO'),
+    (null,'23','QUERÉTARO','03','SAN JUAN DEL RÍO'),
+    (null,'24','QUINTANA ROO','01','CHETUMAL'),
+    (null,'24','QUINTANA ROO','02','PLAYA DEL CARMEN'),
+    (null,'24','QUINTANA ROO','07','CANCÚN'),
+    (null,'25','SAN LUÍS POTOSÍ','01','METROPOLITANA ORIENTE'),
+    (null,'25','SAN LUÍS POTOSÍ','03','MATEHIUALA'),
+    (null,'25','SAN LUÍS POTOSÍ','05','CIUDAD VALLES'),
+    (null,'25','SAN LUÍS POTOSÍ','60','METROPOLITANA PONIENTE'),
+    (null,'26','SINALOA','01','CULIACÁN'),
+    (null,'26','SINALOA','03','LOS MOCHIS'),
+    (null,'26','SINALOA','04','GUASAVE'),
+    (null,'26','SINALOA','05','MAZATLÁN'),
+    (null,'27','SONORA','70','CD. OBREGÓN'),
+    (null,'27','SONORA','01','HERMOSILLO'),
+    (null,'27','SONORA','10','NOGALES'),
+    (null,'27','SONORA','13','CABORCA'),
+    (null,'27','SONORA','03','GUAYMAS'),
+    (null,'27','SONORA','07','NAVOJOA'),
+    (null,'27','SONORA','57','NACOZARI'),
+    (null,'27','SONORA','51','AGUA PRIETA'),
+    (null,'28','TABASCO','01','VILLAHERMOSA'),
+    (null,'28','TABASCO','02','CÁRDENAS'),
+    (null,'29','TAMAULIPAS','01','CD. VICTORIA'),
+    (null,'29','TAMAULIPAS','04','REYNOSA'),
+    (null,'29','TAMAULIPAS','10','TAMPICO'),
+    (null,'29','TAMAULIPAS','13','CD. MANTE'),
+    (null,'29','TAMAULIPAS','18','NUEVO LAREDO'),
+    (null,'29','TAMAULIPAS','19','MATAMOROS'),
+    (null,'30','TLAXCALA','01','TLAXCALA'),
+    (null,'31','VERACRUZ NORTE','02','XALAPA'),
+    (null,'31','VERACRUZ NORTE','12','VERACRUZ'),
+    (null,'31','VERACRUZ NORTE','07','POZA RICA'),
+    (null,'31','VERACRUZ NORTE','25','LERDO DE TEJADA'),
+    (null,'31','VERACRUZ NORTE','09','MARTINEZ DE LA TORRE'),
+    (null,'32','VERACRUZ SUR','03','ORIZABA'),
+    (null,'32','VERACRUZ SUR','02','CÓRDOBA'),
+    (null,'32','VERACRUZ SUR','38','COSAMALOAPAN'),
+    (null,'32','VERACRUZ SUR','45','COATZACOALCOS'),
+    (null,'33','YUCATÁN','01','NORTE'),
+    (null,'33','YUCATÁN','33','SUR 131'),
+    (null,'34','ZACATECAS','01','ZACATECAS'),
+    (null,'34','ZACATECAS','09','FRESNILLO'),
+    (null,'35','NOROESTE DEL DISTRITO FEDERAL','01','MAGDALENA DE LAS SALINAS (11)'),
+    (null,'35','NOROESTE DEL DISTRITO FEDERAL','02','STA. MA. LA RIBERA (54)'),
+    (null,'35','NOROESTE DEL DISTRITO FEDERAL','03','POLANCO (16)'),
+    (null,'36','NOROESTE DEL DISTRITO FEDERAL','04','GUERRERO (56)'),
+    (null,'36','NOROESTE DEL DISTRITO FEDERAL','05','CENTRO (57)'),
+    (null,'37','SUROESTE DISTRITO FEDERAL','06','PIEDAD NARVARTE 37/54'),
+    (null,'37','SUROESTE DISTRITO FEDERAL','07','DEL VALLE 37/06'),
+    (null,'37','SUROESTE DISTRITO FEDERAL','08','SAN ANGEL 37/01'),
+    (null,'38','SURESTE DEL DISTRITO FEDERAL','09','SANTA ANITA 38/11'),
+    (null,'38','SURESTE DEL DISTRITO FEDERAL','10','CHURUBUSCO 38/54');
+
+
+/*
+La tabla ubicación almacena las ubicaciones disponibles para los
+expedientes. Hay 4 posibles ubicaciones actualmente con posibilidad de 
+ampliación:
+- Bodega
+- Ley 73
+- Ley 97
+- IG
+*/
+DROP TABLE IF EXISTS ubicacion;
+CREATE TABLE IF NOT EXISTS ubicacion(
+    nombre VARCHAR(15) NOT NULL PRIMARY KEY
+) ENGINE = InnoDB;
+
+INSERT INTO ubicacion(nombre) VALUES
+    ("Bodega"),
+    ("Ley 73"),
+    ("Ley 97"),
+    ("IG"),
+    ("TRANSFERIDO");
+
+/*
+La tabla usuario almacena los datos del usuario. Se destaca la longitud
+del atributo pass, que hace referencia a la contraseña, ya que es necesario
+una longitud mínima de 60 caracteres para almacenar el hash de la encriptación.
+El campo tipo_usuario sólo puede tener los valores:
+- ADMINISTRADOR
+- OPERATIVO
+
+Estos tipos de usuario tienen distintos privilegios en la aplicación.
+*/
+DROP TABLE IF EXISTS usuario;
+CREATE TABLE IF NOT EXISTS usuario(
+    matricula VARCHAR(15) NOT NULL PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    apellidos VARCHAR(50) NOT NULL,
+    adscripcion VARCHAR(50) NOT NULL,
+    tipo_usuario VARCHAR(20) NOT NULL,
+    usuario VARCHAR(20) NOT NULL,
+    pass VARCHAR(80) NOT NULL,
+    estatus BOOL NOT NULL,
+    fecha_registro DATE NOT NULL,
+    foto VARCHAR(100)
+) ENGINE = InnoDB;
+
+INSERT INTO usuario VALUES(
+    '1', 'Administrador', 'SIMAPE', 'San Juan del Rio', 'ADMINISTRADOR', 'admin', '$2b$10$Cot5ANSyvJhp1hI20sKAL.DbYiiiW.utV346BjdFKBSlGn60.u6ZO', '1', '2023-06-09', ''
+);
+
+/*
+La tabla expediente almacena los datos del expediente, tomando
+como clave primaria el número de seguridad social (nss). Este consta
+con dos campos para establecer si el expediente ha sido dado de baja o
+se ha extraído de su lugar. Además, este está registrado por un usuario
+específico.
+
+El estado del expediente tiene 4 posibles valores:
+- INGRESADO
+- EXTRAIDO 
+- SUPERVISADO
+- PRESTADO
+
+Estos representan los distintos estados en los que puede estar el expediente
+en base a su último movimiento realizado.
+*/
+
+DROP TABLE IF EXISTS expediente;
+CREATE TABLE IF NOT EXISTS expediente(
+    nss VARCHAR(15) NOT NULL PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    categoria VARCHAR(10) NOT NULL,
+    fecha_alta DATE NOT NULL,
+    fecha_baja DATE,
+    delegacion INT NOT NULL,
+    ubicacion VARCHAR(15) NOT NULL,
+    año INT NOT NULL,
+    matricula VARCHAR(15),
+    observaciones VARCHAR(110),
+    estatus BOOL NOT NULL,
+    -- extraido BOOL NOT NULL,
+    -- supervisado BOOL NOT NULL,
+    -- prestado BOOL NOT NULL,
+    estado VARCHAR(20),
+    INDEX delegacion_index (delegacion ASC),
+    INDEX matricula_index (matricula ASC),
+    INDEX ubicacion_index (ubicacion ASC),
+    FOREIGN KEY (delegacion) REFERENCES delegacion(id_delegacion)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+    FOREIGN KEY (matricula) REFERENCES usuario(matricula)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+    FOREIGN KEY (ubicacion) REFERENCES ubicacion(nombre)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+) ENGINE = InnoDB;
+
+# insert into expediente values('123', 'Nombre', '97 - CE', '2023-06-09', null, '1', 'Bodega', 2023, '1', 'observaciones', true, false);
+
+/*
+La superclase movimiento contempla todos los atributos generales de todos los
+movimientos posibles, los cuales son:
+- ALTA
+- BAJA
+- INGRESO
+- EXTRACCIÓN
+- TRANSFERENCIA
+- SUPERVISIÓN_SALIDA
+- SUPERVISIÓN_ENTRADA
+- PRÉSTAMO
+- DEVOLUCIÓN
+
+La herencia se llevará a cabo con la clave primaria folio. Cada movimiento
+se realiza por un usuario en específico.
+*/
+DROP TABLE IF EXISTS movimiento;
+CREATE TABLE IF NOT EXISTS movimiento(
+    folio INT NOT NULL PRIMARY KEY,
+    matricula VARCHAR(15) NOT NULL,
+    motivo VARCHAR(50), /*VERIFICAR SI EL MOTIVO PUEDE SER NULO Y UNA LONGITUD MÁS PRECISA*/
+    fecha DATETIME NOT NULL,
+    tipo_movimiento VARCHAR(20),
+    INDEX matricula_index (matricula ASC),
+    FOREIGN KEY (matricula) REFERENCES usuario(matricula)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+) ENGINE = InnoDB;
+
+/*
+La subclase movimientoNormal contempla 4 tipos de movimiento:
+- ALTA
+- BAJA
+- INGRESO
+- EXTRACCIÓN
+
+Estos movimientos se agrupan aquí, ya que todos utilizan los mismos
+atributos extras a la superclase, pero no significa que tengan el mismo
+comportamiento. Todos contienen el campo "pendiente", pero por defecto 
+no se utilizará a excepción del tipo de movimiento BAJA, ya que requiere
+ser autorizado por un usuario administrador.
+*/
+DROP TABLE IF EXISTS movimientoNormal;
+CREATE TABLE IF NOT EXISTS movimientoNormal(
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    folio INT NOT NULL,
+    nss VARCHAR(15) NOT NULL,
+    pendiente BOOL NOT NULL,
+    INDEX folio_index (folio ASC),
+    INDEX nss_index (nss ASC),
+    FOREIGN KEY (folio) REFERENCES movimiento(folio)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+    FOREIGN KEY (nss) REFERENCES expediente(nss)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+)ENGINE = InnoDB;
+
+/*
+La subclase movimientoTransferencia contempla sólo el movimiento:
+- TRANSFERENCIA
+
+Se aísla ya que contiene atributos especiales. Al igual que el
+movimiento normal, requiere autorización por parte de un usuario
+administrador.
+*/
+DROP TABLE IF EXISTS movimientoTransferencia;
+CREATE TABLE IF NOT EXISTS movimientoTransferencia(
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    folio INT NOT NULL,
+    nss VARCHAR(15) NOT NULL,
+    pendiente BOOL NOT NULL,
+    del_destino INT NOT NULL,
+    INDEX folio_index (folio ASC),
+    INDEX nss_index (nss ASC),
+    INDEX del_destino_index (del_destino ASC),
+    FOREIGN KEY (folio) REFERENCES movimiento(folio)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+    FOREIGN KEY (nss) REFERENCES expediente(nss)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+    FOREIGN KEY (del_destino) REFERENCES delegacion(id_delegacion)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+) ENGINE = InnoDB;
+
+/*
+La subclase movimientoPrestamo contempla sólo el movimiento:
+- PRÉSTAMO
+- DEVOLUCIÓN
+
+Este se aísla por sus atributos especiales.
+*/
+DROP TABLE IF EXISTS movimientoPrestamo;
+CREATE TABLE IF NOT EXISTS movimientoPrestamo(
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    folio INT NOT NULL,
+    nss VARCHAR(15) NOT NULL,
+    matricula_emisor VARCHAR(15) NOT NULL,
+    matricula_receptor VARCHAR(15) NOT NULL,
+    pendiente BOOLEAN,
+    fecha_finalizacion DATETIME,
+    INDEX folio_index (folio ASC),
+    INDEX nss_index (nss ASC),
+    INDEX matricula_emisor_index (matricula_emisor ASC),
+    INDEX matricula_receptor_index (matricula_receptor ASC),
+    FOREIGN KEY (folio) REFERENCES movimiento(folio)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+    FOREIGN KEY (nss) REFERENCES expediente(nss)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+    FOREIGN KEY (matricula_receptor) REFERENCES usuario(matricula)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+    FOREIGN KEY (matricula_emisor) REFERENCES usuario(matricula)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+) ENGINE = InnoDB;
+
+/*
+La subclase movimientoSupervision contempla sólo el movimiento:
+- SUPERVISIÓN_SALIDA
+- SUPERVISIÓN_ENTRADA
+
+Se aísla ya que contiene atributos especiales. Este movimiento es
+único para usuarios de tipo administrador. Este movimiento se 
+comporta diferente a los demás, ya que un sólo movimiento contiene
+varios expedientes. Para lograr esto es necesario crear esta tabla,
+con un patrón que se expresaría tal que:
+supervision: {
+    folio: 1,
+    supervisor: 'nombre',
+    nss: [
+        '11111111111',
+        '11111111112',
+        '11111111113'
+    ]
+}
+*/
+DROP TABLE IF EXISTS movimientoSupervision;
+CREATE TABLE IF NOT EXISTS movimientoSupervision(
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    folio INT NOT NULL,
+    nss VARCHAR(15) NOT NULL,
+    supervisor VARCHAR(80) NOT NULL,
+    pendiente BOOLEAN,
+    fecha_finalizacion DATETIME,
+    INDEX folio_index (folio ASC),
+    INDEX nss_index (nss ASC),
+    FOREIGN KEY (folio) REFERENCES movimiento(folio)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+    FOREIGN KEY (nss) REFERENCES expediente(nss)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+) ENGINE = InnoDB;
+
+/*
+La tabla petición almacena los folios de los movimientos que requieren
+autorización por parte de un usuario administrador y que han sido realizados
+por un usuario operativo.
+El campo estado puede ser:
+- PENDIENTE
+- ACEPTADO
+- RECHAZADO
+
+El campo tipo puede ser:
+- BAJA
+- TRANSFERENCIA
+*/
+DROP TABLE IF EXISTS peticion;
+CREATE TABLE IF NOT EXISTS peticion(
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nss VARCHAR(15) NOT NULL,
+    folio INT NOT NULL,
+    estado VARCHAR(15) NOT NULL,
+    tipo VARCHAR(15) NOT NULL,
+    INDEX folio_index (folio ASC),
+    INDEX nss_index (nss ASC),
+    FOREIGN KEY (folio) REFERENCES movimiento(folio)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+    FOREIGN KEY (nss) REFERENCES expediente(nss)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+) ENGINE = InnoDB;
+                        </code>
+                    </pre>
+
+                    <h3>Código</h3>
+                    <h4>Servidor web</h4>
+                    <pre>
+                        <code>
+import cookieParser from 'cookie-parser';
+import cors from 'cors';
+import express from 'express';
+import session from 'express-session';
+import nocache from 'nocache'
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import routes from './routes/routes.js';
+import usuarioRoutes from './routes/usuarioRoutes.js';
+import expedienteRoutes from './routes/expedienteRoutes.js';
+import dotenv from 'dotenv';
+import { Server } from 'socket.io';
+import http from 'node:http';
+import { socketsUsuario } from './sockets/socketsUsuario.js';
+import delegacionRoutes from './routes/delegacionRoutes.js';
+import movimientoRoutes from './routes/movimientoRoutes.js';
+import peticionRoutes from './routes/peticionRoutes.js';
+
+
+// Declarar constantes para uso de rutas estaticas
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+
+// Configurar uso de .env
+dotenv.config();
+
+
+// Constantes de inicio de servidor
+const PORT = process.env.PORT;
+const app = express();
+const HTTPserver = http.createServer(app);
+const io = new Server(HTTPserver);
+
+
+// Sockets
+socketsUsuario(io);
+
+
+
+
+// Configuraciones de servidor
+process.env.TZ = 'America/Mexico_City';
+app.set('view engine', 'ejs');
+app.use(cors());
+app.use(nocache());
+app.use(express.json());
+app.use(express.urlencoded({ extended:true }));
+app.use(cookieParser());
+app.use(session({
+    secret: process.env.SECRET_KEY_SESSION,
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 1000 * 60 * 60 * 12 }
+}));
+
+
+
+
+// Rutas
+app.use('/', routes);
+app.use('/usuario', usuarioRoutes);
+app.use('/expediente', expedienteRoutes);
+app.use('/delegacion', delegacionRoutes);
+app.use('/movimiento', movimientoRoutes);
+app.use('/peticion', peticionRoutes);
+
+
+// Iniciar servidor
+const server = HTTPserver.listen(PORT, () => {
+    console.log(`Servidor activo en el puerto ${PORT}`);
+});
+
+
+// rutas estaticas frontend
+app.use("/scss", express.static(join(__dirname, 'src/assets/scss')));
+app.use("/imgs", express.static(join(__dirname, 'src/imgs')));
+app.use("/icons", express.static(join(__dirname, 'src/icons')));
+app.use("/fonts", express.static(join(__dirname, 'src/fonts')));
+app.use("/js", express.static(join(__dirname, 'src/js')));
+app.use("/uploads", express.static(join(__dirname, 'src/uploads')));
+app.use("/dist", express.static(join(__dirname, 'dist')));
+
+
+app.use((req, res) => {
+    res.status(404).render('404');
+});
+
+
+export { app, server };
+                        </code>
+                    </pre>
+                </section>
             </main>
 
             <aside>
