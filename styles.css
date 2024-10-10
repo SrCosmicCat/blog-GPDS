@@ -306,6 +306,47 @@ pre {
     margin: 30px 10px;
 }
 
+.entry-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 0;
+    width: 75%;
+    margin: auto;
+}
+
+.entry-container a {
+    text-decoration: none;
+    color: #1d1d20;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.entry-container a:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.entry-container .entry-image {
+    margin: 0;
+    width: 100%;
+    height: 120px;
+    border-radius: 10px 10px 0 0;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.entry-container .entry-info {
+    padding: 30px;
+}
+
+.entry-container .entry-info h4 {
+    margin: 10px 0;
+}
+
 code {
     padding: 5px;
     border-radius: 5px;
