@@ -168,7 +168,7 @@ header nav ul, .grid nav ul {
 
 header nav ul li {
     display: inline;
-    margin-right: 10px;
+    margin-right: 15px;
 }
 
 header nav ul li a, .grid nav ul li a {
@@ -243,33 +243,36 @@ aside {
 }
 
 .card {
-    background-color: #2e274e;
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+aside .card {
+    background-color: #2e274e;
     color: white;
     position: sticky;
     top: 110px;
 }
 
-.card .author-container {
+aside .card .author-container {
     display: flex;
     align-items: center;
 }
 
-.card h2 {
+aside .card h2 {
     font-size: 25px;
     margin-bottom: 5px;
 }
 
-.card .author-container img {
+aside .card .author-container img {
     height: 50px;
     border-radius: 50%;
     margin-right: 10px;
 }
 
-.card .author-container span {
+aside .card .author-container span {
     font-size: 14px;
     font-weight: 500;
 }
@@ -281,10 +284,32 @@ pre {
     overflow-x: auto;
 }
 
+.author-index-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 20px 30px;
+    width: 75%;
+    margin: auto;
+    gap: 20px;
+}
+
+.author-index-container h4 {
+    font-size: 25px;
+}
+
+.author-index-container .author-index-image {
+    height: 100px;
+    width: auto;
+    border-radius: 50%;
+    margin: 30px 10px;
+}
+
 code {
     padding: 5px;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 14px;
     font-family: 'Courier New', Courier, monospace;
 }
 
