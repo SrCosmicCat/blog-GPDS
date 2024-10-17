@@ -220,10 +220,44 @@ header nav ul li a:hover, .grid nav ul li a:hover {
 }
 
 .grid nav .index-container {
-    border-right: 3px #2e274e solid;
+    /* border-right: 3px #2e274e solid; */
     position: sticky;
     top: 110px;
+    max-height: 530px;
+    overflow-y: auto;
 }
+
+.grid nav .index-container::-webkit-scrollbar {
+    width: 6px;
+    background-color: #fff;
+}
+
+.grid nav .index-container::-webkit-scrollbar-thumb {
+    background-color: #2e274e;
+    border-radius: 8px;
+}
+
+.grid nav .index-container::-webkit-scrollbar-track {
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    background-color: #2e274e;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #2e274e;
+    border-radius: 10px;
+}
+
+
 
 main {
     grid-area: main;
