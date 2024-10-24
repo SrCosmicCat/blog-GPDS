@@ -85,16 +85,118 @@
                                 <td>Debido al tiempo y eficacia del proyecto, se decide realizar un control de gastos para solicitar el presupuesto a los stakeholders.</td>
                                 <td>Se puede implementar un servicio “freemium” para poder monetizar la aplicación pero que conserve sus características principales gratuitas</td>
                             </tr>
+                            <tr>
+                                <td>La eliminación de los expedientes los borra definitivamente de la base de datos</td>
+                                <td>Al ser expedientes delicados (pues involucran dinero), la acción de eliminar un expediente sólo debería darlo de baja, para no perder por completo la información del mismo, en caso de borrarlo por accidente.</td>
+                                <td>La información no relevante puede ser eliminada (para optimizar espacio) y la información más relevante se puede conservar por si se requiere</td>
+                            </tr>
+                            <tr>
+                                <td>No es posible la modificación de un expediente</td>
+                                <td>Es necesario que los datos de los expedientes se puedan recuperar y modificar en caso de escribir erróneamente algún dato</td>
+                                <td>Dar al usuario la opción de modificación de expedientes pero aceptada por el administrador.</td>
+                            </tr>
+                            <tr>
+                                <td>Los usuarios no se enteran de si alguien tomó algún expediente o si este cambió de dueño, no hay un seguimiento aparte del que se encuentra en los reportes.</td>
+                                <td>Implementar un sistema de notificaciones para el préstamo y la devolución de expedientes, que notifique quién tomó, prestó, eliminó un expediente de manera reciente.</td>
+                                <td>Tener igualmente una aplicación móvil que permita el envío de notificaciones.</td>
+                            </tr>
+                            <tr>
+                                <td>Existe información que solo el expediente físico contiene, por lo que la carga de documentos digitales sería muy útil cuando el expediente no está disponible pero más de una persona lo requiere.</td>
+                                <td>Integración de documentos digitales: Permitir la carga de documentos digitales</td>
+                                <td>Contratar un servicio como Cloudflare que permite la subida de archivos, y ahí almacenar los expedientes en formato pdf</td>
+                            </tr>
+                            <tr>
+                                <td>Sistema de búsqueda: Permite la búsqueda de expedientes en cualquier estado (en préstamo, devuelto, etc)</td>
+                                <td>El sistema es capaz de buscar expedientes que hayan sido prestados o tomados, y recupera la información y el estado del mismo.</td>
+                                <td>Informar al usuario el estado del expediente</td>
+                            </tr>
                         </tbody>
                     </table>
                 </section>
                 <hr>
                 <section id="implementacion-devops">
                     <h2>Implementación DEVOPS</h2>
+                    <h3>Planeación</h3>
+                    <p>Para la implementación de DEVOPS en el proyecto SIMAPE, se planea realizar un proceso de entrega continua e implementación continua. Se utilizará la metodología SCRUM para el desarrollo del proyecto, y se combinará con la metodología DEVOPS para la entrega e implementación de mejoras.</p>
+                    
+                    <h3>Desarrollo</h3>
+                    <p>Para el desarrollo del proyecto se utilizará la metodología SCRUM, la cual es un enfoque ágil para el desarrollo de software que se basa en la colaboración, la flexibilidad y la entrega incremental de productos. Se centra en la gestión eficiente de proyectos complejos, especialmente aquellos en los que los requisitos pueden cambiar o no estar completamente definidos desde el principio.</p>
+                    <p>El proceso SCRUM se organiza en iteraciones llamadas "sprints", que son períodos de tiempo predefinidos (generalmente de 1 a 4 semanas) en los que se desarrolla una parte del producto final.</p>
+
+                    <h3>Entrega/Implementación continua</h3>
+                    <p>Para la entrega e implementación continua se utilizará GitHub como herramienta de despliegue. GitHub permite que cada integrante pueda subir modificaciones de código, que después serán revisadas por el encargado y por último implementadas en el proyecto principal.</p>
+                    
+                    <h3>Despliegue</h3>
+                    <p>Se configura para hacer despliegue de cada versión de forma incremental 1 vez por semana, de modo que cada avance e implementación de mejoras puede ser modificado en dado caso de ser necesario.</p>
+
+                    <h3>Monitoreo</h3>
+                    <p>Se utilizará la herramienta de monitoreo de GitHub para llevar un control de los cambios realizados en el proyecto, así como para detectar posibles errores o fallos en el código.</p>
+                
                 </section>
                 <hr>
                 <section id="alternativas-existentes">
                     <h2>Alternativas existentes</h2>
+                    <table>
+                        <thead>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Diferencia con SIMAPE</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Génesis G4</td>
+                                <td>
+                                    Genesis G4 es un sistema de automatización de bibliotecas todo en uno. Incluye funcionalidades como:
+                                    <ul>
+                                        <li>circulación,</li>
+                                        <li>catalogación,</li>
+                                        <li>libros de texto,</li>
+                                        <li>inventario,</li>
+                                        <li>informes (simples y personalizables),</li>
+                                        <li>gestión de prestatarios,</li>
+                                        <li>control de libros de texto,</li>
+                                        <li>sesiones de soporte remoto de productos basados ​​en la Web.</li>    
+                                    </ul>
+                                </td>
+                                <td>
+                                    SIMAPE incluye funcionalidades como préstamos de expedientes, es exclusivo de expedientes de pensionados, es personalizado con la institución (IMSS). Es fácil de usar con las opciones justas y necesarias para su correcto funcionamiento.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Insignia Library System</td>
+                                <td>
+                                    Insignia Library System es un Software de Library Automation Software creado por la empresa Insignia Software (United States).
+                                    El precio de este software no es proporcionado por el editor.
+                                </td>
+                                <td>
+                                    El precio de SIMAPE es de un solo pago.
+                                    No se describen todas las características del software, sin comprarlo, por lo que no es posible una comparación precisa respecto a SIMAPE.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Koha ILS : Software de bibliotecas</td>
+                                <td>
+                                    Koha ILS es un Software de Library Automation Software creado por la empresa LibLime (United States).
+                                    El precio de este software es de $999.00/mes.
+                                    Koha establece el estándar para los sistemas de automatización de bibliotecas integrados de código abierto. 
+                                </td>
+                                <td>
+                                    Nuevamente, el precio de SIMAPE es un pago único, sin mensualidades e incluyen manual de usuario, manual técnico y capacitación al personal.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Liberty</td>
+                                <td>
+                                    Liberty es un Software de Library Automation Software creado por la empresa Softlink America (United States). Automatiza la gestión de bibliotecas, préstamos y devoluciones, y controla el inventario de manera eficiente.
+                                    Proporciona una plataforma para el descubrimiento y la entrega de los recursos tradicionales y digitales, que ofrece en cualquier lugar, en cualquier momento de los contenidos digitales en dispositivos móviles modernos.
+                                </td>
+                                <td>
+                                    Es la alternativa más acercada a SIMAPE, pues incluye funciones de préstamos y devoluciones. Sin embargo puede ser un poco difícil de entender, e incluir herramientas innecesarias para la gestión de los expedientes. 
+                                    El precio de Liberty no se encuentra publicado, sin embargo, al ser de una empresa estadounidense se intuye que será una mensualidad en dólares que sobrepasa por mucho el pago único de SIMAPE.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </section>
             
             </main>

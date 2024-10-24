@@ -415,6 +415,11 @@ table td {
     border-bottom: 1px solid #e0e0e0;
 }
 
+table ul li {
+    font-size: 1em;
+    margin-top: 8px;
+}
+
 code {
     padding: 5px;
     border-radius: 5px;
