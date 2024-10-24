@@ -397,6 +397,24 @@ div.image-cover {
     background-repeat: no-repeat;
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th {
+    background-color: #2e274e;
+    color: white;
+    padding: 10px;
+    font-weight: 500;
+}
+
+table td {
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
 code {
     padding: 5px;
     border-radius: 5px;
