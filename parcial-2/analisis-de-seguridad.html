@@ -35,7 +35,12 @@
                 <div class="index-container">
                     <ul>
                         <li><a href="#analisis-de-seguridad">Análisis de seguridad</a></li>
-                        
+                        <ul>
+                          <li><a href="#introduccion">Introducción</a></li>
+                          <li><a href="#resultado-del-analisis">Resultado del análisis</a></li>
+                          <li><a href="#recomendaciones">Recomendaciones</a></li>
+                          <li><a href="#conclusiones">Conclusiones</a></li>
+                        </ul>
                     </ul>
                 </div>
             </nav>
@@ -59,13 +64,39 @@
                 <section id="resultado-del-analisis">
                     <h2>Resultado del análisis</h2>
                     <p>El análisis de seguridad realizado a la página web del proyecto <strong>SIMAPE</strong> arrojó los siguientes resultados:</p>
-                    <!-- <ul>
-                        <li>Se encontraron vulnerabilidades de tipo <strong>SQL Injection</strong> en la página de inicio de sesión.</li>
-                        <li>Se encontraron vulnerabilidades de tipo <strong>Cross-Site Scripting (XSS)</strong> en la página de registro de usuarios.</li>
-                        <li>Se encontraron vulnerabilidades de tipo <strong>Clickjacking</strong> en la página de inicio.</li>
-                    </ul> -->
-
-              
+                    <img src="../images/parcial-2/seguridad-informe-1.png" alt="">
+                    <p>Aquí se muestra que no se tienen vulnerabilidades graves o críticas, por lo que el software es medianamente seguro. En la siguiente tabla se muestra cuáles son las vulnerabilidades a las que está expuesto el sistema:</p>
+                    <img src="../images/parcial-2/seguridad-informe-2.png" alt="">
+                    <ul>
+                      <li>Auscencia de tokens <strong>Anti-CSRF</strong>: Se encontró que la página no cuenta con tokens anti CSRF, lo que puede permitir a un atacante realizar peticiones en nombre del usuario.</li>
+                      <li>Cabecera <strong>Content Security Policy</strong>: Se encontró que la página no cuenta con una cabecera content security policy, lo que puede permitir a un atacante realizar ataques de tipo clickjacking.</li>
+                      <li>Configuración incorrecta <strong>Cross-Domain</strong>: Se encontró que la página no cuenta con una configuración correcta de Cross-Domain, lo que puede permitir a un atacante realizar ataques de tipo CORS.</li>
+                      <li>Falta de cabecera <strong>Anti-Clickjacking</strong>: Se encontró que la página no cuenta con una cabecera anti-clickjacking, lo que puede permitir a un atacante realizar ataques de tipo clickjacking.</li>
+                      <li>Cookie sin el atributo <strong>Same-Site</strong>: Se encontró que la página no cuenta con el atributo Same-Site en las cookies, lo que puede permitir a un atacante realizar ataques de tipo CSRF.</li>
+                      <li>Encabezado <strong>'X-Powered-By'</strong>: Se encontró que la página cuenta con el encabezado 'X-Powered-By', lo que puede permitir a un atacante conocer la tecnología utilizada en el servidor.</li>
+                      <li><strong>X-Content-Type-Options</strong>: Se encontró que la página no cuenta con la cabecera X-Content-Type-Options, lo que puede permitir a un atacante realizar ataques de tipo MIME sniffing.</li>
+                    </ul>
+                  </section>
+                  <hr>
+                  <section id="recomendaciones">
+                    <h2>Recomendaciones</h2>
+                    <p>Para mejorar la seguridad de la página web del proyecto <strong>SIMAPE</strong>, se recomienda:</p>
+                    <ul>
+                      <li>Implementar tokens <strong>Anti-CSRF</strong> en las peticiones: Se recomienda implementar tokens anti CSRF para evitar que un atacante realice peticiones en nombre del usuario.</li>
+                      <li>Configurar una cabecera <strong>Content Security Policy</strong>: Se recomienda configurar una cabecera content security policy para evitar ataques de tipo clickjacking.</li>
+                      <li>Configurar correctamente el <strong>Cross-Domain</strong>: Se recomienda configurar correctamente el Cross-Domain para evitar ataques de tipo CORS.</li>
+                      <li>Implementar una cabecera <strong>Anti-Clickjacking</strong>: Se recomienda implementar una cabecera anti-clickjacking para evitar ataques de tipo clickjacking.</li>
+                      <li>Agregar el atributo <strong>Same-Site</strong>: Se recomienda agregar el atributo Same-Site en las cookies para evitar ataques de tipo CSRF.</li>
+                      <li>Eliminar el encabezado <strong>'X-Powered-By'</strong>: Para evitar que un atacante conozca la tecnología utilizada en el servidor.</li>
+                      <li>Agregar la cabecera <strong>X-Content-Type-Options</strong>: Para evitar ataques de tipo MIME sniffing.</li>
+                    </ul>
+                  </section>
+                  <hr>
+                  <section id="conclusiones">
+                    <h2>Conclusiones</h2>
+                    <p>El análisis de seguridad realizado a la página web del proyecto <strong>SIMAPE</strong> permitió identificar las vulnerabilidades a las que está expuesto el sistema y las recomendaciones para mejorar su seguridad.</p>
+                    <p>Es importante que se tomen en cuenta las recomendaciones mencionadas para evitar posibles ataques y proteger la información de los usuarios.</p>
+                  </section>
             </main>
 
             <aside>
