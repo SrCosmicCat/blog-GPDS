@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="../images/dev-icon.svg" type="image/x-icon">
+        <link rel="stylesheet" href="../styles.css">
+        <title>Análisis de seguridad</title>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <span style="font-weight: 500; font-size: 1.5em; display: flex; flex-direction: row; align-items: center; gap: 10px;">
+                    <svg width="1.3em" viewBox="0 0 474 518" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M131 196L203.286 255.628C205.723 257.638 205.708 261.377 203.255 263.367L131 322M344 322H252M20.4937 177.301V340.699C20.4937 367.494 34.7886 392.253 57.9937 405.651L199.5 487.349C222.705 500.747 251.295 500.747 274.5 487.349L416.006 405.651C439.211 392.253 453.506 367.494 453.506 340.699V177.301C453.506 150.506 439.211 125.747 416.006 112.349L274.5 30.6506C251.295 17.2532 222.705 17.2532 199.5 30.6506L57.9937 112.349C34.7886 125.747 20.4937 150.506 20.4937 177.301Z" stroke="white" stroke-width="50" stroke-linecap="round"/>
+                    </svg> 
+                    Blog GPDS
+                </span>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../index.html#parcial-1">Parcial 1</a></li>
+                    <li><a href="../index.html#parcial-2">Parcial 2</a></li>
+                    <li><a href="../index.html#parcial-3">Parcial 3</a></li>
+                    <li><a href="../index.html#acerca-de">Acerca de</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <!-- <div style="background-image: url('./images/js_bg.jpg'); height: 300px; margin-bottom: 20px; background-size: cover;">
+            <h1 style="color: white; text-align: center; font-weight: 600; line-height: 300px; font-size: 82px; font-family: Poppins; backdrop-filter: blur(2px);">Blog GPDS</h1>
+        </div> -->
+
+        <div class="grid">
+            <nav>
+                <div class="index-container">
+                    <ul>
+                        <li><a href="#analisis-de-seguridad">Análisis de seguridad</a></li>
+                        
+                    </ul>
+                </div>
+            </nav>
+
+            <main>
+                <h1 id="analisis-de-seguridad">Análisis de seguridad</h1>
+                <span>Escrito por: Miguel Ángel Diosdado Rodríguez y Fernanda Montserrat Hernández Ávila</span>
+                <br>
+                <span>Fecha: 28 de octubre de 2024</span>
+                
+                <hr>
+                
+                <div class="image-cover" style="background-image: url(../images/parcial-2/seguridad.jpg);"></div>
+
+                <section id="introduccion">
+                    <h2>Introducción</h2>
+                    <p>En esta entrada se presenta el análisis de seguridad realizado a la página web del proyecto <strong>SIMAPE</strong>.</p>
+                    <p>Este infome se realizó con el software <strong>ZAP</strong>, una herramienta de código abierto que permite encontrar vulnerabilidades en aplicaciones web.</p>
+                </section>
+                <hr>
+                <section id="resultado-del-analisis">
+                    <h2>Resultado del análisis</h2>
+                    <p>El análisis de seguridad realizado a la página web del proyecto <strong>SIMAPE</strong> arrojó los siguientes resultados:</p>
+                    <!-- <ul>
+                        <li>Se encontraron vulnerabilidades de tipo <strong>SQL Injection</strong> en la página de inicio de sesión.</li>
+                        <li>Se encontraron vulnerabilidades de tipo <strong>Cross-Site Scripting (XSS)</strong> en la página de registro de usuarios.</li>
+                        <li>Se encontraron vulnerabilidades de tipo <strong>Clickjacking</strong> en la página de inicio.</li>
+                    </ul> -->
+
+              
+            </main>
+
+            <aside>
+                <div class="card">
+                    <h2>Autores</h2>
+                    <div class="author-container">
+                        <img src="../images/autores/miguel.jpg" alt="">
+                        <span>Miguel Ángel Diosdado Rodríguez</span>
+                    </div>
+                    <div class="author-container">
+                        <img src="../images/autores/montse.jpg" alt="">
+                        <span>Fernanda Montserrat Hernández Ávila</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
+        <footer>
+            <div class="container">
+                <p>Blog GPDS - 2024</p>
+                <p>Diosdado Rodriguez Miguel Ángel & Hernández Ávila Fernanda Montserrat</p>
+            </div>
+        </footer>
+    </body>
+</html>
