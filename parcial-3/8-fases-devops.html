@@ -51,6 +51,7 @@
                             <li><a href="#6-cultura-de-mejora-continua">6. Cultura de mejora continua</a></li>
                             <li><a href="#7-infraestructura-como-codigo">7. Infraestructura como código</a></li>
                             <li><a href="#8-enfoque-en-el-cliente">8. Enfoque en el cliente</a></li>
+                            <li><a href="#referencias">Referencias</a></li>
                         </ul>
                     </ul>
                 </div>
@@ -71,6 +72,9 @@
                     <p>El incremento en la comunicación y la colaboración en una organización es uno de los aspectos culturales clave de DevOps. El uso de las herramientas de DevOps y la automatización del proceso de entrega de software establece la colaboración al reunir físicamente los flujos de trabajo y las responsabilidades de los equipos de desarrollo y operaciones. Además, estos equipos establecen normas culturales sólidas que giran en torno a compartir información y facilitar la comunicación mediante el uso de aplicaciones de chat, sistemas de seguimiento de proyectos o problemas y wikis. De este modo, se acelera la comunicación entre los equipos de desarrollo y operaciones e incluso con otros equipos, como marketing y ventas, lo que permite que todos los departamentos de la organización se alineen mejor con los objetivos y proyectos.</p>
                     
                     <h3 id="1-implementacion">Implementación en SIMAPE</h3>
+                    <p>Para realizar este paso, es importante apoyarse de herramientas que mejoren la comunicación y la colaboración en el proyecto. Para SIMAPE, se utilizaron distintos softwares que proporcionan estas funcionalidades, facilitando la comunicación interpersonal entre miembros del equipo, y el seguimiento de las actividades para mejorar la colaboración.</p>
+                    <p><strong>Miro:</strong> Es una herramienta colaborativa que permite la colaboración de distintos miembros en un equipo. Cuenta con un canvas o lienzo donde se pueden colocar plantillas de muchos tipos, para hacer asignaciones de roles, tableros kanban, etc. En este caso se utilizaron tableros de este tipo para llevar el seguimiento del proyecto, saber qué actividades eran las restantes, en qué plazo tendrían que estar terminadas y quien era el responsable.</p>
+                    <p><strong>Discord:</strong> Discord es una red social parecida a Slack, en la cual se pueden organizar fácilmente grupos de muchas personas en distintos canales de comunicación, asignar roles y privilegios, programar bots, hacer llamadas de audio y video, compartir pantalla, mandar mensajes y muchas otras cosas. En este caso, se utilizó para organizar al equipo en canales de comunicación, y trabajar en línea en ciertos momentos donde la comunicación presencial no era posible. También para compartir fácilmente archivos o extractos de código.</p>
                 </section>
                 <hr>
                 <section id="2-integracion-continua">
@@ -78,6 +82,9 @@
                     <p>La integración continua (CI) es la práctica de automatizar la integración de los cambios de código de varios contribuidores en un único proyecto de software. Es una de las principales prácticas recomendadas de DevOps, que permite a los desarrolladores fusionar con frecuencia los cambios de código en un repositorio central donde luego se ejecutan las compilaciones y pruebas. Las herramientas automatizadas sirven para verificar que el nuevo código es correcto antes de la integración.</p>
                     <p>Un sistema de control de versiones del código fuente es el punto clave del proceso de CI. El sistema de control de versiones también se complementa con otras comprobaciones como las pruebas automatizadas de calidad del código, las herramientas de revisión de estilo de sintaxis y mucho más.</p>
                     <h3 id="2-implementacion">Implementación en SIMAPE</h3>
+                    <p>En SIMAPE se implementa la integración continua (CI) estableciendo un repositorio central para el código del sistema de gestión de expedientes, el cual se muestra a continuación:</p>
+                    <a href="https://github.com/IKIGAI-Studios/SIMAPE.git">REPOSITORIO</a>
+                    <p>En él, los desarrolladores trabajan en diferentes características o correcciones y, con frecuencia, fusionan sus cambios en este repositorio central. Cada vez que se realiza una fusión, se ejecutan automáticamente pruebas para asegurar que el nuevo código no introduce errores. Esto garantiza que el sistema se mantenga actualizado y libre de errores a medida que se desarrollan nuevas funcionalidades.</p>
                 </section>
                 <hr>
                 <section id="3-entrega-continua">
@@ -85,6 +92,10 @@
                     <p>La entrega continua constituye un enfoque en el que los equipos publican productos de calidad con frecuencia y de forma predecible desde repositorios de código fuente hasta la producción de forma automatizada.</p>
                     <p>La canalización de entrega de software es un producto por sí mismo que debe ser prioritario para la empresa; de lo contrario, no se deben enviar productos que generen ingresos a través de ella. La entrega continua aporta valor de tres maneras, ya que mejora la velocidad, la productividad y la sostenibilidad de los equipos de desarrollo de software.</p>
                     <h3 id="3-implementacion">Implementación en SIMAPE</h3>
+                    <p>En SIMAPE, la entrega continua (CD) se implementa mediante la automatización del proceso de despliegue de nuevas versiones del sistema. Utilizamos herramientas de integración y entrega continua (nuevamente el repositorio en GITHUB) que permiten automatizar la implementación de código desde el repositorio central al entorno de producción. Esto asegura que cada versión nueva del software sea liberada rápidamente y con mínimas interrupciones, manteniendo la calidad del producto y reduciendo el tiempo de entrega al usuario final. Además, se establecen pruebas automatizadas en cada etapa del proceso para garantizar que cada actualización cumpla con los estándares de calidad antes de su lanzamiento.</p>
+                    <p>Para SIMAPE se implementaron pruebas unitarias automatizadas para integrar y testear el progreso de desarrollo y cada funcionalidad nueva que se implementaba.</p>
+                    <p>Esta automatización ayuda a agilizar el proceso de desarrollo y asegurarse de que cada nueva funcionalidad se integra de manera eficiente y sin errores. Al implementar pruebas unitarias automatizadas, se garantiza que cada parte del código sea verificada de manera continua, reduciendo el riesgo de fallos y mejorando la calidad del software. Esto también permite que el equipo de desarrollo se enfoque en tareas más complejas y creativas, aumentando la productividad y eficiencia del proyecto.</p>
+                    <p>Las pruebas unitarias en este caso se realizaron con <strong>Jest</strong>, un potente motor de test diseñado para NodeJS (servidor en el que está montado el proyecto). Jest permite hacer pruebas haciendo fetching de datos, emulando peticiones http, recuperando elementos del DOM, etc. Este motor es fácilmente integrable con proyectos hechos con Javascript y es ampliamente utilizado por la comunidad de desarrolladores.</p>
                 </section>
                 <hr>
                 <section id="4-automatización">
@@ -99,6 +110,8 @@
                     <h2>5. Monitoreo y retroalimentación</h2>
                     <p>Las organizaciones monitorean métricas y registros para ver cómo el desempeño de las aplicaciones y la infraestructura afecta a la experiencia que el usuario final tiene de su producto. Cuando recopilan, categorizan y analizan los datos y registros generados por las aplicaciones y la infraestructura, las organizaciones pueden entender cómo los cambios y actualizaciones afectan a los usuarios, esto les aporta información sobre la causa raíz de los problemas o cambios inesperados. El monitoreo activo se vuelve cada vez más importante, ya que los servicios deben estar disponibles las 24 horas del día, los 7 días de la semana, a medida que la frecuencia de actualizaciones de las aplicaciones e infraestructura incrementa. La creación de alertas y el análisis en tiempo real de los datos también ayuda a las organizaciones a monitorear sus servicios de forma proactiva.</p>
                     <h3 id="5-implementacion">Implementación en SIMAPE</h3>
+                    <p>Para poder monitorear y recibir retroalimentación se realizan reuniones con el cliente (Karla Espinoza) que calificaba y daba retroalimentación al final de cada sprint. Dicha retroalimentación se anotaba y continuaba el desarrollo o se realizaban los cambios solicitados.</p>
+                    <p>Además se tenía un registro y product backlog que permitía llevar seguimiento de las funcionalidades hechas y las pendientes.</p>
                 </section>
                 <hr>
                 <section id="6-cultura-de-mejora-continua">
@@ -107,6 +120,7 @@
                     <p>Implica fomentar el desarrollo de equipos multidisciplinarios que se responsabilicen de todo el ciclo de vida de un producto. Los equipos de DevOps trabajan de forma autónoma y adoptan una cultura, un flujo de trabajo y un conjunto de herramientas de ingeniería de software que llevan los requisitos operativos al mismo nivel de importancia que la arquitectura, el diseño y el desarrollo. Ser consciente de que los desarrolladores que creen algo también deberán gestionarlo los acerca al usuario y les aporta una mayor comprensión de sus requisitos y necesidades. Además, como los equipos de operaciones están más involucrados en el proceso de desarrollo, pueden añadir requisitos de mantenimiento y necesidades de los clientes para obtener un producto aún mejor.</p>
                     <p>En el centro de la cultura de DevOps se encuentra el aumento de la transparencia, la comunicación y la colaboración entre equipos que tradicionalmente trabajaban aislados. Pero hay cambios culturales importantes que deben producirse para acercar a estos equipos. DevOps es un cambio de la cultura organizativa que hace hincapié en el aprendizaje y la mejora continuos, especialmente a través de la autonomía de cada equipo, el feedback rápido, el alto grado de empatía y confianza y la colaboración entre equipos.</p>
                     <h3 id="6-implementacion">Implementación en SIMAPE</h3>
+                    <p>La cultura de mejora continua en SIMAPE se implementa mediante la creación de un ambiente de trabajo colaborativo donde los equipos de desarrollo y operaciones trabajan juntos a lo largo de todo el ciclo de vida del producto. Se fomenta el aprendizaje continuo a través de la realización de retrospectivas al final de cada sprint, donde se evalúan los procesos y se identifican áreas de mejora. Además, se promueve la autonomía de los equipos para que puedan tomar decisiones rápidas y adaptarse a los cambios en las necesidades del cliente. Esta cultura contribuye a aumentar la eficiencia y la calidad del producto final al asegurar que todos los miembros del equipo estén alineados con los objetivos del negocio y comprometidos con la entrega de valor al cliente.</p>
                 </section>
                 <hr>
                 <section id="7-infraestructura-como-codigo">
@@ -115,6 +129,7 @@
                     <p>Los desarrolladores y administradores de sistemas utilizan código para automatizar la configuración del sistema operativo y el host, las tareas operativas y más. El uso de código hace que los cambios a la configuración sean repetibles y estandarizados. Evita que los desarrolladores y administradores de sistemas tengan que configurar manualmente sistemas operativos, aplicaciones del sistema o software del servidor.</p>
                     <p>La infraestructura descrita por el código se puede supervisar, validar y reconfigurar de forma automática. De este modo, las organizaciones pueden controlar los cambios en los recursos con mayor facilidad y garantizar que se siguen las medidas de seguridad de forma distribuida. Así, los equipos de la organización pueden avanzar a mayor velocidad, ya que los recursos no conformes se identifican de forma automática para su investigación o incluso se los dota de conformidad automáticamente.</p>
                     <h3 id="7-implementacion">Implementación en SIMAPE</h3>
+                    <p>En SIMAPE, la infraestructura como código se integra mediante el uso de herramientas que permiten automatizar y gestionar la infraestructura de manera eficiente. Esto ayuda a estandarizar los entornos de desarrollo, prueba y producción, permitiendo una implementación más rápida y menos propensa a errores. Al tratar la infraestructura como código, se asegura que los cambios se implementen de manera consistente y repetible, mejorando la estabilidad y confiabilidad del sistema. Además, facilita la escalabilidad al permitir la rápida provisión de nuevos recursos según sea necesario.</p>
                 </section>
                 <hr>
                 <section id="8-enfoque-en-el-cliente">
@@ -122,9 +137,17 @@
                     <p>Los equipos de DevOps entregan código nuevo más rápido a través de una mayor colaboración y la creación de versiones más enfocadas (y más frecuentes) mediante el uso de una arquitectura de microservicios. Este proceso impulsa mejoras, innovaciones y correcciones de errores para comercializar más pronto.</p>
                     <p>También permite a las organizaciones adaptarse a los cambios del mercado con mayor rapidez y satisfacer mejor las necesidades de los clientes, lo que se traduce en una mayor satisfacción del cliente y un beneficio competitivo. El proceso de lanzamiento de software se puede automatizar con entrega continua e integración continua.</p>
                     <h3 id="8-implementacion">Implementación en SIMAPE</h3>
+                    <p>En SIMAPE, el enfoque en el cliente se logra mediante la implementación de un ciclo de retroalimentación constante con los usuarios finales. Se realizan reuniones regulares con los clientes para comprender sus necesidades y expectativas, lo que permite al equipo de desarrollo adaptar el producto para satisfacer mejor esas demandas. Además, se utilizan herramientas de monitoreo y análisis para recoger datos sobre el uso del sistema, lo que ayuda a identificar áreas de mejora y ajustar las funcionalidades del producto en consecuencia. Este enfoque centrado en el cliente asegura que el producto evolucione de acuerdo con las necesidades del usuario, aumentando su satisfacción y fidelización.</p>
                 </section>
                 <hr>
-
+                <section id="referencias">
+                    <p>Atlassian. (s/f-a). Cultura de DevOps. Atlassian. Recuperado el 7 de noviembre de 2024, de https://www.atlassian.com/es/devops/what-is-devops/devops-culture</p>
+                    <p>Atlassian. (s/f-b). ¿En qué consiste la integración continua? Atlassian. Recuperado el 7 de noviembre de 2024, de https://www.atlassian.com/es/continuous-delivery/continuous-integration</p>
+                    <p>Atlassian. (s/f-c). Entrega continua. Atlassian. Recuperado el 7 de noviembre de 2024, de https://www.atlassian.com/es/continuous-delivery</p>
+                    <p>Atlassian. (s/f-d). Tutoriales de automatización de DevOps. Atlassian. Recuperado el 7 de noviembre de 2024, de https://www.atlassian.com/es/devops/automation-tutorials</p>
+                    <p>¿Qué es devops? (s/f). Amazon.com. Recuperado el 7 de noviembre de 2024, de https://aws.amazon.com/es/devops/what-is-devops/</p>
+                    <p>¿Qué es DevOps? (2024, julio 12). Ibm.com. https://www.ibm.com/mx-es/topics/devops</p>
+                </section>
             </main>
 
             <aside>
